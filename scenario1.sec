@@ -1,0 +1,5 @@
+type=Single
+ptype=RegExp
+pattern=device (.*?) entered promiscuous mode$
+desc=$0
+action= write /var/log/rsyslog/kali-host/sec_log.log  Interface $1 entered promiscuous mode
