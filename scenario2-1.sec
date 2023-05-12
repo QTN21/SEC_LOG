@@ -2,4 +2,4 @@ type=Single
 ptype=RegExp
 pattern=sshd\[\d+\]:, .+ for invalid user (\S+) from ([\d.]+) port \d+ ssh2
 desc=$0
-action=write /var/log/collector/sec.log Connexion SSH sur $2 avec le mauvais utilisateur ($1)
+action=write /var/log/collector/sec.log %t SSH : Connexion SSH sur $2 avec le mauvais utilisateur ($1)

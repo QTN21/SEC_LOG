@@ -2,4 +2,4 @@ type=Single
 ptype=RegExp
 pattern=device (.*?) entered promiscuous mode$
 desc=$0
-action= write /var/log/collector/sec.log  Interface $1 entered promiscuous mode
+action= write /var/log/collector/sec.log %t NETWORK : Interface $1 entered promiscuous mode

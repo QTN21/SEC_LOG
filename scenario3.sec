@@ -1,0 +1,18 @@
+type=PairWithWindow
+ptype=RegExp
+pattern=sshd\[\d+]:, Connection from (\S+.) port (\d+) on (\S+.)
+desc=$0
+action=none
+ptype2=RegExp
+pattern2=sshd\[\d+\]:, fatal: Timeout before authentication for
+desc2=$0
+action2=write /var/log/collector/sec.log %t SSH : CONNECTION TIMEOUT FROM $1 ON $3
+window=125
+
+type=SingleWithThreshold
+ptype=RegExp
+pattern=SSH CONNECTION TIMEOUT FROM (\S+.) ON (\S+.)
+desc=$0
+action=write /var/log/collector/sec.log %t SSH : Possible DoS cause to multiple SSH connection from $1 on $2
+window=300
+thresh=10
