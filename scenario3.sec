@@ -3,5 +3,5 @@ ptype=RegExp
 pattern=sshd\[\d+\]:, Connection from ([\d.]+) port (\d+) on ([\d.]+) port (\d+)
 desc=user $1 ip $2
 action=write /var/log/collector/sec.log %t SSH : Too many SSH login failures from $1 on port $2 to $3 on port $4
-thresh=3
+thresh=10
 window=300

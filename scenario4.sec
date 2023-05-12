@@ -1,0 +1,5 @@
+type=Single
+ptype=RegExp
+pattern=systemd\[\d+\]:, (Started|Stopped|Restarted) (\w+).service
+desc=Changement d'état d'une application
+action=shellcmd python3 ./daemon.py %t $2 $1
